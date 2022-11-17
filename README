@@ -1,6 +1,5 @@
-This README file contains information on the contents of the meta-hello layer.
 
-
+#This README file contains information on the contents of the meta-hello layer.
 
 Dependencies
 ============
@@ -10,7 +9,6 @@ Dependencies
   URI: <Linux headers version>
     version: 5.15.0-52-generic
   
-
 Table of Contents
 =================
 
@@ -26,13 +24,10 @@ Table of Contents
     and also it contains the recipe of this driver that must include the source code and the makefile as "SRC_URI" fields,
     and other fields like package provided and the LICENCE ...
     
-
-
 Adding the meta-hello layer to your build:
 ==========================================
 
 Run 'bitbake-layers add-layer meta-hello' and thats it!
-
 
 To execute run:
 ===============
@@ -43,7 +38,6 @@ To execute run:
    3. To unload the driver from the kernel:
         $ sudo rmmode hello.ko
    
-
 ! Important:
 ============
 
