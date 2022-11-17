@@ -1,41 +1,56 @@
 This README file contains information on the contents of the meta-hello layer.
 
-Please see the corresponding sections below for details.
+
 
 Dependencies
 ============
 
-  URI: <first dependency>
-  branch: <branch name>
-
-  URI: <second dependency>
-  branch: <branch name>
-
-  .
-  .
-  .
-
-Patches
-=======
-
-Please submit any patches against the meta-hello layer to the xxxx mailing list (xxxx@zzzz.org)
-and cc: the maintainer:
-
-Maintainer: XXX YYYYYY <xxx.yyyyyy@zzzzz.com>
+  URI: <Yocto image with dunfell branch>
+    branch: <Dunfell>
+  URI: <Linux headers version>
+    version: 5.15.0-52-generic
+  
 
 Table of Contents
 =================
 
-  I. Adding the meta-hello layer to your build
- II. Misc
+  I. Conf directory:
+    This folder contain the layer configuration and the recipes path and the layer priority etc.
+    
+ II. Recipes-exemple:
+    The reciepces example folder contain a simple recipe as an example that is created by bitbake,
+    to show the overall reciepe structure.
+   
+ III. Hello:
+    The "Helo" folder is the main recipe of the driver itself: it contain a folder within the driver source code and its makefle in it,
+    and also it contains the recipe of this driver that must include the source code and the makefile as "SRC_URI" fields,
+    and other fields like package provided and the LICENCE ...
+    
 
 
-I. Adding the meta-hello layer to your build
-=================================================
+Adding the meta-hello layer to your build:
+==========================================
 
-Run 'bitbake-layers add-layer meta-hello'
+Run 'bitbake-layers add-layer meta-hello' and thats it!
 
-II. Misc
-========
 
---- replace with specific information about the meta-hello layer ---
+To execute run:
+===============
+   1. To load the driver into the kernel :
+        $ sudo insmode /lib/modules/(your-kernel-version)/extra/hello.ko
+   2. To see the output in logs:
+        $ dmesg | tail 2
+   3. To unload the driver from the kernel:
+        $ sudo rmmode hello.ko
+   
+
+! Important:
+============
+
+  To prevent errors !!! First you should :
+      1. Take in consideration you kernel version and the linux hearders headers version used in the driver, they should be compatible!!!
+      2. Make sure about the poky distro you workd with, it may cause some sythanxes error in reciepes if it is not compatible!
+      3. Add "IMAGE_INSTALL_APPEND = hello" to your local.conf file, otherwise this module will compile but never shows in your linux image!
+      
+
+
