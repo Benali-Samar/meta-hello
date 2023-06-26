@@ -9,14 +9,13 @@ return 0;
 
 
 static void hello_exit (void){
-printk("Good bye, you see no poiny to keep it in kernel memo for no reason ^^  \n");
+printk("Good bye, There is no point to keep it in kernel memo for no reason ^^  \n");
 }
 
 module_init(hello_init);
-module_exite(hello-exit);
+module_exit(hello_exit);
 
 
 MODULE_AUTHOR ("ME hihi :P ");
-MODULE_LICENCE("GPL");
+MODULE_LICENSE("GPL");
 MODULE_DESCRIPTION(" A hello world driver");
-
